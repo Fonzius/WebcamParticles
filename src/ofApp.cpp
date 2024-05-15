@@ -5,9 +5,7 @@ void ofApp::setup(){
     webcam.setup(ofGetWidth(), ofGetHeight());
     
     edge.load("./shaders/edge");
-    
-    mask.load("./shaders/mask");
-    
+        
     camFbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
     outFbo.allocate(ofGetWidth(), ofGetHeight(), GL_RGBA);
     
@@ -68,7 +66,6 @@ void ofApp::setup(){
 void ofApp::update(){
     webcam.update();
     
-    
     particles.loadDataTexture(FastParticleSystem::VELOCITY, outFbo);
 
     ofShader &shader = particles.getUpdateShader();
@@ -77,6 +74,7 @@ void ofApp::update(){
     shader.setUniform1f("height", ofGetHeight());
     shader.setUniform1f("time", ofGetElapsedTimef());
     shader.setUniform2f("mouse", ofGetMouseX(), ofGetMouseY());
+    
     particles.update();
 
 }
@@ -84,23 +82,24 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     outFbo.begin();
-    
-    
     camFbo.begin();
+    
     webcam.draw(0,0);
+    
     camFbo.end();
     
+    
     edge.begin();
+    
     camFbo.draw(0,0); //DOVREBBE POTER ESSERE SOSTITUITO CON UN OFDRAWRECT() PERCHÈ STIAMO GENERANDO TUTTO NELLO SHADER
     
     edge.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
     edge.setUniformTexture("fboTexture", camFbo.getTexture(0), 0);
+    
     edge.end();
      
     outFbo.end();
 
-    
-    
     
     ofShader &shader = particles.getDrawShader();
     shader.begin();
@@ -108,11 +107,7 @@ void ofApp::draw(){
     shader.setUniformMatrix4f("modelview", modelView);
     shader.end();
     
-    
     ofBackground(0);
-
-    
-    
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -132,8 +127,6 @@ void ofApp::draw(){
     
 
     ofDisableBlendMode();
-    
-    //particles.getCurrentReadFbo().getTexture(1).draw(0,0);
 }
 
 //--------------------------------------------------------------

@@ -29,5 +29,5 @@ class ofApp : public ofBaseApp{
         ofVideoGrabber webcam;
         ofFbo camFbo, outFbo;
         FastParticleSystem particles;
-        ofShader edge, blur, mask;
+        ofShader edge, mask;
 };

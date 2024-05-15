@@ -42,10 +42,6 @@
 		507406902BF35C1B00C0588E /* drawParticles.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = drawParticles.frag; sourceTree = "<group>"; };
 		507406912BF373CD00C0588E /* edge.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = edge.frag; sourceTree = "<group>"; };
 		507406922BF373D400C0588E /* edge.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = edge.vert; sourceTree = "<group>"; };
-		507406932BF373E200C0588E /* blur.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blur.frag; sourceTree = "<group>"; };
-		507406942BF373E900C0588E /* blur.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = blur.vert; sourceTree = "<group>"; };
-		507406952BF3A04A00C0588E /* mask.frag */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mask.frag; sourceTree = "<group>"; };
-		507406962BF3A05200C0588E /* mask.vert */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = mask.vert; sourceTree = "<group>"; };
 		"6DA23359-EBEB-45C0-97B9-036F19A49FA5" /* FastParticleSystem.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FastParticleSystem.h; path = ../../../addons/ofxFastParticleSystem/src/FastParticleSystem.h; sourceTree = SOURCE_ROOT; };
 		"9C608EE9-5D6E-4BD3-9470-7A8048C6FF05" /* ofxFastParticleSystem.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxFastParticleSystem.h; path = ../../../addons/ofxFastParticleSystem/src/ofxFastParticleSystem.h; sourceTree = SOURCE_ROOT; };
 		"AF8288EC-6C54-4E56-A387-53D596A69869" /* FastParticleSystem.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FastParticleSystem.cpp; path = ../../../addons/ofxFastParticleSystem/src/FastParticleSystem.cpp; sourceTree = SOURCE_ROOT; };
@@ -88,10 +84,6 @@
 				5074068E2BF3579600C0588E /* updateParticles.vert */,
 				507406912BF373CD00C0588E /* edge.frag */,
 				507406922BF373D400C0588E /* edge.vert */,
-				507406932BF373E200C0588E /* blur.frag */,
-				507406942BF373E900C0588E /* blur.vert */,
-				507406952BF3A04A00C0588E /* mask.frag */,
-				507406962BF3A05200C0588E /* mask.vert */,
 			);
 			name = shaders;
 			path = bin/data/shaders;
