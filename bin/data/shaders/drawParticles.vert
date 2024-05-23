@@ -2,10 +2,8 @@
 
 uniform sampler2DRect particles0; // position
 
-
 uniform mat4 projection;
 uniform mat4 modelview;
-
 
 in vec2 texcoord;
 

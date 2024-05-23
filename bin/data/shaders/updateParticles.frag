@@ -51,15 +51,12 @@ void main() {
     
     vy = (fy.r + fy.g + fy.b)*2./nItery;
     
-
     pos.y += vel.y + vy;
         
     if(pos.y < 0.){
         pos.y = height;
         pos.x = width * rand(pos.xy);
     }
-    
-    
     
     posOut = vec4(pos, vel);
     //velOut = vec4(vel, vec2(0.0));

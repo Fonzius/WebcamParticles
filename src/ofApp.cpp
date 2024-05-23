@@ -32,22 +32,6 @@ void ofApp::setup(){
     particles.loadDataTexture(FastParticleSystem::POSITION, particlePosns);
     delete[] particlePosns;
     
-    //VELOCITIES
-    /*
-    float* velocities = new float [w * h * 4];
-    for (unsigned y = 0; y < h; y++){
-        for(unsigned x = 0; x < w; x++){
-            unsigned idx = y * w + x;
-            velocities[idx * 4] =    0;
-            velocities[idx * 4 +1] = ofRandom(-1.5, -0.5);
-            velocities[idx * 4 +2] = 0;
-            velocities[idx * 4 +3] = 0;
-        }
-    }
-    particles.loadDataTexture(FastParticleSystem::VELOCITY, velocities);
-    delete[] velocities;
-     */
-    
     particles.addUpdateShader("./shaders/updateParticles");
     particles.addDrawShader("./shaders/drawParticles");
     
@@ -82,21 +66,16 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     outFbo.begin();
-    camFbo.begin();
     
-    webcam.draw(0,0);
+        camFbo.begin();
+            webcam.draw(0,0);
+        camFbo.end();
     
-    camFbo.end();
-    
-    
-    edge.begin();
-    
-    camFbo.draw(0,0); //DOVREBBE POTER ESSERE SOSTITUITO CON UN OFDRAWRECT() PERCHÈ STIAMO GENERANDO TUTTO NELLO SHADER
-    
-    edge.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
-    edge.setUniformTexture("fboTexture", camFbo.getTexture(0), 0);
-    
-    edge.end();
+        edge.begin();
+            camFbo.draw(0,0);
+        edge.setUniform2f("resolution", ofGetWidth(), ofGetHeight());
+        edge.setUniformTexture("fboTexture", camFbo.getTexture(0), 0);
+        edge.end();
      
     outFbo.end();
 
@@ -116,15 +95,12 @@ void ofApp::draw(){
     glDisable(GL_PROGRAM_POINT_SIZE);
     glDisable(GL_BLEND);
     
-    
     ofEnableBlendMode(OF_BLENDMODE_ALPHA);
     ofSetColor(255, 255, 255, 5);
     ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
-
     
     ofEnableBlendMode(OF_BLENDMODE_MULTIPLY);
     outFbo.getTexture(0).draw(0,0);
-    
 
     ofDisableBlendMode();
 }
@@ -136,7 +112,7 @@ void ofApp::exit(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    
+ 
 }
 
 //--------------------------------------------------------------
