@@ -11,7 +11,7 @@ The resulting video has a rain-like quality where particles tend to stay on the 
 
 Here a video is presented to show the program in action both with a webcam as input and also as a post-processing effect on a previously made video
 
-[Demo](https://youtu.be/lFImnMZY1ZU)
+https://youtu.be/lFImnMZY1ZU
 
 ## Libraries
 This project uses [FuseFactory's great ofxFastParticleSystem](https://github.com/fusefactory/ofxFastParticleSystem?tab=readme-ov-file) library for the particle system 
